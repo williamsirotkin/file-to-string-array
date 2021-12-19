@@ -1,4 +1,5 @@
 import java.io.*;
+import java.lang.IndexOutOfBoundsException;
 
 /**
  * Blueprint for testing file to string array program.
@@ -10,8 +11,13 @@ public class Tester {
      */
     public static void main(String[] args) {
 	FileToStringArray ftsa = new FileToStringArray();
-	String[] strArray = ftsa.fileToStringArray(new File(args[0]));
-	printStringArray(strArray);
+	try {
+	    String[] strArray = ftsa.fileToStringArray(new File(args[0]));
+	    printStringArray(strArray);
+	} catch (IndexOutOfBoundsException ioobe) {
+	    System.out.println("ERROR: This program needs a file as the only command line argument.");
+	    System.exit(1);
+	}
     } // main
 
     /**
@@ -20,7 +26,7 @@ public class Tester {
      *
      * @param strArray the string array to be printed
      */
-    private void printStringArray(String[] strArray) {
+    private static void printStringArray(String[] strArray) {
 	for (int i = 0; i < strArray.length; i++) {
 	    System.out.println(strArray[i]);
 	} // for

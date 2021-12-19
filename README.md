@@ -1,0 +1,2 @@
+This program uses a method called fileToStringArray(File file) to take an input file and return a string array
+of all of that file's text. The strings are seperated in the file by any space or new line character. 
